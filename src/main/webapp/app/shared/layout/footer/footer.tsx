@@ -9,7 +9,7 @@ const Footer = () => (
     <Row>
       <Col md="12">
         <p>
-          <Translate contentKey="footer">DA THAY DOI CODE</Translate>
+          <Translate contentKey="footer">DA THAY DOI CODE LAN 2</Translate>
         </p>
       </Col>
     </Row>
