@@ -11,23 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Set up JDK 17
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: maven
-    - name: Maven Dependency Submission
-      uses: advanced-security/maven-dependency-submission-action@v1
-      with:
-        token: ${{ secrets.Token }}
-
-    - name: Record start time
-      run: echo "::set-output name=start_time::$(date +%s)"
-
-    - name: Build step
-      run: echo "Building project..."
-
     - name: Record end time and calculate duration
       run: |
         end_time=$(date +%s)
