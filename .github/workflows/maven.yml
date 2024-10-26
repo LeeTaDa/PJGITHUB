@@ -2,17 +2,23 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
   pull_request:
-    branches: [ "main" ]
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Record end time and calculate duration
-      run: |
-        end_time=$(date +%s)
-        duration=$((end_time - ${{ steps.start_time.outputs.start_time }}))
-        echo "Pipeline took $duration seconds."
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
